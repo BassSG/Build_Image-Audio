@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
+    <base target="_top">
+    <title>Image to Audio</title>
+    
+    <!-- ส่วน icon สำหรับแท็บและ shortcut (ไม่แสดงในเนื้อหาของหน้าเว็บ) -->
+    <link rel="icon" type="image/png" href="https://cdn.klingai.com/bs2/upload-kling-api/6621542537/image/ClohD2fqPZQAAAAAAHojLA-0_raw_image_0.png">
+    <link rel="apple-touch-icon" href="https://cdn.klingai.com/bs2/upload-kling-api/6621542537/image/ClohD2fqPZQAAAAAAHojLA-0_raw_image_0.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Trip-Planner">
+    <meta name="theme-color" content="#4285f4">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: fixed;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            background-color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, 
+                         Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        /* โลโก้เว็บไซต์ที่แสดงในหน้าเว็บ */
+        
+        #app-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        /* Default: มือถือ */
+        .app-splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #566573;
+            background-image: url("https://cdn.klingai.com/bs2/upload-kling-api/6621542537/image/CmJzE2fqPN4AAAAAAHpEoA-0_raw_image_0.png");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        /* Desktop: จอกว้าง >= 768px */
+        @media (min-width: 768px) {
+            .app-splash {
+                background-image: url("https://cdn.klingai.com/bs2/upload-kling-api/6621542537/image/CmJzE2fqPN4AAAAAAHpEoA-0_raw_image_0.png");
+            }
+        }
+
+        @supports (padding: max(0px)) {
+            body {
+                padding-top: max(0px, env(safe-area-inset-top));
+                padding-bottom: max(0px, env(safe-area-inset-bottom));
+                padding-left: max(0px, env(safe-area-inset-left));
+                padding-right: max(0px, env(safe-area-inset-right));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-splash" id="splash-screen"></div>
+
+    <iframe id="app-container" 
+        src="https://script.google.com/macros/s/AKfycbwobqNBBDe4vduXRoNj5tHk5Ckkbzba289c6dYyU3wWeDIUfHyZ_2jbB9rzUEUlWD5doQ/exec">
+    </iframe>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const splash = document.getElementById('splash-screen');
+                splash.style.opacity = '0';
+                setTimeout(function() {
+                    splash.style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+        
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        document.body.addEventListener('touchmove', function(e) {
+            if (e.target.id !== 'app-container') {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>
