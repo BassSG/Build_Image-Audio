@@ -2,7 +2,7 @@
   "name": "AI Image-Audio",
   "short_name": "Image to Audio",
   "description": "Helpful Assistant AI",
-  "start_url": "https://cdn.klingai.com/bs2/upload-kling-api/6621542537/image/ClwhDWfqP0cAAAAAAJ7vPg-1_raw_image_0.png",
+  "start_url": "https://script.google.com/macros/s/AKfycbyJJIG7ssrb-q_j7UsDER8zV5X6g1Rn2LrE4fhaOjAjyGn2IEr1IFwDej6xA0lQ5nchAg/exec",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
@@ -13,7 +13,7 @@
       "type": "image/png"
     },
     {
-      "src": "https://cdn.klingai.com/bs2/upload-kling-api/6621542537/image/CmJzE2fqPN4AAAAAAImVJQ-0_raw_image_0.png",
+      "src": "https://cdn.klingai.com/bs2/upload-kling-api/6621542537/image/ClwhDWfqP0cAAAAAAJ7vPg-1_raw_image_0.png",
       "sizes": "512x512",
       "type": "image/png"
     }
