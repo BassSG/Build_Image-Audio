@@ -2,7 +2,7 @@
   "name": "AI Image-Audio",
   "short_name": "Image to Audio",
   "description": "Helpful Assistant AI",
-  "start_url": "https://script.google.com/macros/s/AKfycbwJizZKCORLPvJn3tiArWAwL5TZiPenANegnzzB6rVWI_VvxNnk76ExR7A44kHB47_W/exec",
+  "start_url": "https://script.google.com/macros/s/AKfycbzKVGpH2-rACFhMrKWGtIBmJx01qIKMsnxRf2rHcoB4ZdLdsYt4Sz8xpNVBtQ1mrj93/exec",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
